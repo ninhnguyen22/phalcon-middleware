@@ -15,11 +15,6 @@
             "email": "ninhnghia2@gmail.com"
         }
     ],
-    "autoload": {
-        "psr-4": {
-            "Nin\\Debugbar\\": "src/"
-        }
-    },
     "minimum-stability": "dev",
     "require": {
         "php": "^8.0.0"
