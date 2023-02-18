@@ -53,15 +53,14 @@ class MiddlewareManager implements MiddlewareManagerInterface
      * Middle handler for router
      *
      * @param $request
-     * @param array $middleware
+     * @param $middleware
+     * @return mixed
      */
     public function handle($request, $middleware)
     {
         try {
-            $this->sendThoughMiddleware($request, $middleware)
+            return $this->sendThoughMiddleware($request, $middleware)
                 ->then($this->dispatchToRouter());
-
-            exit();
         } catch (Throwable $e) {
             $handle = $this->getHandleException();
             $this->reportException($handle, $e);
@@ -74,11 +73,12 @@ class MiddlewareManager implements MiddlewareManagerInterface
      *
      * @param $request
      * @param $route
+     * @return mixed
      */
     public function handleForRoute($request, $route)
     {
         $middleware = $this->getMiddlewareForRoute($this->getRouteReader($route)->getMiddleware());
-        $this->handle($request, $middleware);
+        return $this->handle($request, $middleware);
     }
 
     public function attach($middleware)
