@@ -1,5 +1,5 @@
 {
-    "name": "nin/phalcon-middleware",
+    "name": "root/phalcon-middleware",
     "description": "Integrates Middleware with Phalcon 5.",
     "keywords": ["Phalcon", "Phalcon 5", "Middleware"],
     "type": "library",
@@ -15,6 +15,11 @@
             "email": "ninhnghia2@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Nin\\Debugbar\\": "src/"
+        }
+    },
     "minimum-stability": "dev",
     "require": {
         "php": "^8.0.0"
